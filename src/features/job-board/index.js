@@ -17,12 +17,11 @@ const JobBoard = () =>{
       <Grid container rowSpacing={1}>
         <Grid item lg={12} md={12} sm={12} xs={12} justifyContent='center'>
           <Box p={3} mt={2} width='100%'>
-            {/* {
+            {
               data?.map((job, index) => (
                 <JobItem key={index} data={job} />
               ))
-            } */}
-            <JobItem />
+            }
           </Box>
         </Grid>
       </Grid>

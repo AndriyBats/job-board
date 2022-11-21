@@ -17,9 +17,13 @@ import EuroSymbolIcon from '@mui/icons-material/EuroSymbol'
 import BookmarkBorderIcon from '@mui/icons-material/BookmarkBorder'
 //////////////////////////////////////////////////
 
-const JobDetailis = () => {
+const JobDetailis = jobDetailisProp => {
   const theme = useTheme()
   const isPhone = useMediaQuery(theme.breakpoints.down('lg'))
+
+  const { title, salary, benefits, description } = jobDetailisProp
+
+  console.log('jobDetailisProp', jobDetailisProp)
 
   const BootstrapButton = styled(Button)({
     fontSize: 12,
@@ -46,13 +50,14 @@ const JobDetailis = () => {
     },
   })
 
+  if(!jobDetailisProp) return null
+
   return(
     <>
       <Box
         display='flex'
         justifyContent= 'space-between'
         flexDirection={{ xl: 'row', lg: 'row', md: 'column', sm: 'column', xs: 'column' }}
-        width={{ xl: 'calc(100% - 432px)', lg: 'calc(100% - 432px)', md: '372px', sm: '372px', xs: '372px' }}
       >
         <Typography sx={{ fontSize: '28px', fontWeight: '700', color: 'text.darkBlue' }}>
             Job Details
@@ -84,7 +89,7 @@ const JobDetailis = () => {
         flexDirection={{ xl: 'row', lg: 'row', md: 'column', sm: 'column', xs: 'column' }}>
         <Box>
           <Typography sx={{ fontSize: '24px', fontWeight: '700', color: 'text.darkBlue' }}>
-            {'Arb eitsme dizi ner/-in / Bet riebsmed iziner/-in (m/w/d) oder einen Arzt'}
+            {title}
           </Typography>
           {!isPhone && <Typography
             sx={{
@@ -128,7 +133,7 @@ const JobDetailis = () => {
             <Box display='flex' alignItems='center' flexDirection='row'>
               <EuroSymbolIcon sx={{ fontSize: '20px', color: 'text.darkBlue' }} />
               <Typography sx={{ width: '140px', fontSize: '20px', fontWeight: '700', color: 'text.darkBlue' }}>
-                {'54 000—60 000'}
+                {salary}
               </Typography>
             </Box>
             <Typography sx={{ fontSize: '18px', fontWeight: '400', color: 'text.darkBlue' }}>
@@ -138,7 +143,7 @@ const JobDetailis = () => {
         </Box>
       </Box>
       <Typography sx={{ mt: 2, fontSize: '18px', fontWeight: '400', color: 'text.darkBlue' }}>
-        {'Arbeclkmds ajcoiejocjcokso kjcojcmcpd sjcodspckcp dscner/-in (m/w/d) oder einen Arzt/eine Ärztin'}
+        {description}
       </Typography>
       <Typography sx={{ mt: 4, fontSize: '20px', fontWeight: '700', color: 'text.darkBlue' }}>
         {'Compensation & Benefits:'}
@@ -159,12 +164,16 @@ const JobDetailis = () => {
           },
         }}
       >
-        <ListItem mr='60px' disablePadding>
-          <ListItemIcon >
-            <SquareIcon fontSize='9px' />
-          </ListItemIcon>
-          <ListItemText primary='Chelsea Otakan' />
-        </ListItem>
+        {
+          benefits?.map((benefit, index) => (
+            <ListItem mr='60px' disablePadding key={index}>
+              <ListItemIcon >
+                <SquareIcon fontSize='9px' />
+              </ListItemIcon>
+              <ListItemText primary={benefit} />
+            </ListItem>
+          ))
+        }
       </List>
       <Box
         display='flex'

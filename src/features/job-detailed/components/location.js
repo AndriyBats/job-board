@@ -16,7 +16,7 @@ const Location = () => {
   const isPhone = useMediaQuery(theme.breakpoints.down('lg'))
 
   return(
-    <Box width={{ xl: '402px', lg: '402px', md: '372px', sm: '372px', xs: '372px' }}>
+    <Box width={{ xl: '402px', lg: '402px', md: '374px', sm: '374px', xs: '374px' }}>
       {isPhone &&
       (
         <Box mb={4}>

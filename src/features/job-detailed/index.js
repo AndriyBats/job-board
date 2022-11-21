@@ -1,15 +1,11 @@
-// import * as R from 'ramda'
 import { Link } from 'react-router-dom'
 // material
 import Box from '@mui/material/Box'
 import Grid from '@mui/material/Grid'
 import Button from '@mui/material/Button'
 import Typography from '@mui/material/Typography'
-import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos'
 // icons-material
-
-// api
-import { useFetchJobsQuery } from '../../api/jobAPI'
+import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos'
 // features
 import Location from './components/location'
 import JobDetailis from './components/job-details'
@@ -17,14 +13,18 @@ import AdditionalInfo from './components/additional-info'
 import AttachedImages from './components/attached-images'
 //////////////////////////////////////////////////
 
-const JobDetailed = () =>{
-  const { data } = useFetchJobsQuery()
-  console.log('jobs', data)
+const JobDetailed = () => {
+  const job = JSON.parse(localStorage.getItem('job'))
+  console.log('jobs', job)
+
+  const { title, salary, description, benefits } = job
+
+  const jobDetailisProp = { title, salary, benefits, description }
 
   return (
     <Box width='100%'>
       <Grid container>
-        <Grid item lg={12} md={12} sm={12} xs={12} justifyContent='center'>
+        <Grid p={3} item lg={12} md={12} sm={12} xs={12} justifyContent='center'>
           <Box
             mt={2}
             width='100%'
@@ -35,10 +35,9 @@ const JobDetailed = () =>{
           >
             <Box
               p={{ xl: 2, lg: 2, md: 1, sm: 1, xs: 1 }}
-
-              width={{ xl: 'calc(100% - 432px)', lg: 'calc(100% - 432px)', md: '372px', sm: '372px', xs: '372px' }}
+              width={{ xl: 'calc(100% - 432px)', lg: 'calc(100% - 432px)', md: '374px', sm: '374px', xs: '374px' }}
             >
-              <JobDetailis />
+              <JobDetailis jobDetailisProp={jobDetailisProp} />
               <Box
                 display='flex'
                 flexDirection={{

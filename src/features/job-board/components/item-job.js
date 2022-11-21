@@ -21,14 +21,14 @@ import BookmarkBorderIcon from '@mui/icons-material/BookmarkBorder'
 
 //////////////////////////////////////////////////
 
-const JobItem = () => {
-  // console.log('data', data)
-  // console.log('pictures', data.data.pictures)
+const JobItem = ({ data }) => {
   // const { pictures, description } = data.data
   const theme = useTheme()
   const [value, setValue] = useState(2)
 
   const isPhone = useMediaQuery(theme.breakpoints.down('lg'))
+
+  const { title, name, address } = data
 
   return (
     <Card sx={{ pt: 1, mt: 1, width: '100%' }}>
@@ -55,23 +55,24 @@ const JobItem = () => {
           <Box>
             <Typography
               component={Link}
-              to={'/job_detailed'}
-              sx={{ fontSize: '20px', fontWeight: '700', color: 'text.darkBlue' }}
+              to={{ pathname: '/job_detailed', data: data }}
+              onClick={() => localStorage.setItem('job', JSON.stringify(data))}
+              sx={{ fontSize: '20px', fontWeight: '700', color: 'text.darkBlue', textDecoration: 'none' }}
             >
-              {'\n  Consequat ipsum ut laborum consectetur. Qui deserunt non amet consequat cupidatat..\n\n'}
+              {title}
             </Typography>
             <Typography
               sx={{ fontSize: '16px', fontWeight: '400', color: 'text.secondary' }}
             >
               {'Department name • '}
-              {'Allgemeines Krankenhaus der Stadt Wien - AKH'}
+              {name}
             </Typography>
             <Box sx={{ width: '100%', display: 'flex', flexDirection: 'row' }}>
               <PlaceIcon sx={{ color: 'text.secondary' }} />
               <Typography
                 sx={{ fontSize: '16px', fontWeight: '400', color: 'text.secondary' }}
               >
-                {'Vienna, Austria'}
+                {address}
               </Typography>
             </Box>
           </Box>
