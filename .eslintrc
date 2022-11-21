@@ -1,0 +1,46 @@
+{
+  "extends": [
+    "eslint:recommended",
+    "plugin:react/recommended",
+    "plugin:react-hooks/recommended"
+  ],
+  "plugins": [
+    "react",
+    "react-hooks"
+  ],
+  "parserOptions": {
+    "sourceType": "module",
+    "ecmaVersion": 2020
+  },
+  "rules": {
+    "indent": ["error", 2],
+    "react/prop-types": "off",
+    "semi": ["error", "never"],
+    "react/react-in-jsx-scope": "off",
+    "jsx-quotes": ["error", "prefer-single"],
+    "object-curly-spacing": ["error", "always"],
+    "array-bracket-spacing": ["error", "never"],
+    "comma-dangle": ["error", "always-multiline"],
+    "key-spacing": ["error", { "beforeColon": false }],
+    "semi-spacing": ["error", {"before": false, "after": true}],
+    "no-trailing-spaces": ["error", { "skipBlankLines": true }],
+    "no-multi-spaces": ["error", { "ignoreEOLComments": false }],
+    "max-len": ["error", { "code": 120, "ignoreUrls": true, "ignoreComments": true }],
+    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }], //should add ".ts" if typescript project
+    "react/jsx-tag-spacing": ["error", {
+      "closingSlash": "never",
+      "afterOpening": "never",
+      "beforeClosing": "allow",
+      "beforeSelfClosing": "always"
+    }],
+    // hooks
+    "eol-last": ["error", "always"],
+    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": "warn",
+    "no-multiple-empty-lines": ["error", { "max": 1, "maxEOF": 0 }],
+    "quotes": [
+      "error",
+      "single"
+    ]
+  }
+}
