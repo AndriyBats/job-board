@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom'
+import { useNavigate, useLocation } from 'react-router-dom'
 // material
 import Box from '@mui/material/Box'
 import Grid from '@mui/material/Grid'
@@ -14,12 +14,22 @@ import AttachedImages from './components/attached-images'
 //////////////////////////////////////////////////
 
 const JobDetailed = () => {
-  const job = JSON.parse(localStorage.getItem('job'))
-  console.log('jobs', job)
+  const navigate = useNavigate()
+  const locations = useLocation()
 
-  const { title, salary, description, benefits } = job
-
-  const jobDetailisProp = { title, salary, benefits, description }
+  const {
+    name,
+    title,
+    phone,
+    email,
+    salary,
+    address,
+    location,
+    benefits,
+    pictures,
+    description,
+    employment_type,
+  } = locations.state
 
   return (
     <Box width='100%'>
@@ -37,7 +47,7 @@ const JobDetailed = () => {
               p={{ xl: 2, lg: 2, md: 1, sm: 1, xs: 1 }}
               width={{ xl: 'calc(100% - 432px)', lg: 'calc(100% - 432px)', md: '374px', sm: '374px', xs: '374px' }}
             >
-              <JobDetailis jobDetailisProp={jobDetailisProp} />
+              <JobDetailis title={title} salary={salary} benefits={benefits} description={description} />
               <Box
                 display='flex'
                 flexDirection={{
@@ -48,8 +58,8 @@ const JobDetailed = () => {
                   xs: 'column-reverse',
                 }}
               >
-                <AdditionalInfo />
-                <AttachedImages />
+                <AdditionalInfo benefits={benefits} employment_type={employment_type} />
+                <AttachedImages pictures={pictures} />
               </Box>
               
             </Box>
@@ -58,14 +68,13 @@ const JobDetailed = () => {
               p={{ xl: 2, lg: 2, md: 1, sm: 1, xs: 1 }}
               justifyContent={{ xl: 'start', lg: 'start', md: 'center', sm: 'center', xs: 'center' }}
             >
-              <Location />
+              <Location name={name} phone={phone} email={email} location={location} address={address} />
             </Box>
           </Box>
           <Button
             variant='contained'
+            onClick={() => navigate('/')}
             startIcon={<ArrowBackIosIcon sx={{ fontSize: '18px', color: 'text.darkBlue' }} />}
-            component={Link}
-            to={'/'}
             sx={{
               mt: '89px',
               width: '221px',

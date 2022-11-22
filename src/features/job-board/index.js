@@ -1,7 +1,8 @@
-// import * as R from 'ramda'
 // material
 import Box from '@mui/material/Box'
 import Grid from '@mui/material/Grid'
+import Stack from '@mui/material/Stack'
+import Pagination from '@mui/material/Pagination'
 // api
 import { useFetchJobsQuery } from '../../api/jobAPI'
 // features
@@ -10,7 +11,6 @@ import JobItem from './components/item-job'
 
 const JobBoard = () =>{
   const { data } = useFetchJobsQuery()
-  console.log('jobs', data)
 
   return (
     <Box width='100%' height='100%' backgroundColor='background.grey'>
@@ -22,6 +22,11 @@ const JobBoard = () =>{
                 <JobItem key={index} data={job} />
               ))
             }
+          </Box>
+          <Box m={2} display='flex' justifyContent='center'>
+            <Stack spacing={2} backgroundColor='background.white'>
+              <Pagination count={10} shape='rounded' />
+            </Stack>
           </Box>
         </Grid>
       </Grid>

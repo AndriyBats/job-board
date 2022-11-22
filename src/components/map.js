@@ -6,7 +6,7 @@ const TILE_LAYER_URL = 'https://cartodb-basemaps-{s}.global.ssl.fastly.net/light
 
 export const MapComponent = ({ position }) => (
   <MapContainer
-    zoom={14}
+    zoom={3}
     minZoom={1}
     maxZoom={16}
     scrollWheelZoom={false}

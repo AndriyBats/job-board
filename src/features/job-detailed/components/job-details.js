@@ -17,13 +17,9 @@ import EuroSymbolIcon from '@mui/icons-material/EuroSymbol'
 import BookmarkBorderIcon from '@mui/icons-material/BookmarkBorder'
 //////////////////////////////////////////////////
 
-const JobDetailis = jobDetailisProp => {
+const JobDetailis = ({ title, salary, benefits, description }) => {
   const theme = useTheme()
   const isPhone = useMediaQuery(theme.breakpoints.down('lg'))
-
-  const { title, salary, benefits, description } = jobDetailisProp
-
-  console.log('jobDetailisProp', jobDetailisProp)
 
   const BootstrapButton = styled(Button)({
     fontSize: 12,
@@ -49,8 +45,6 @@ const JobDetailis = jobDetailisProp => {
       boxShadow: '0 0 0 0.2rem rgba(0,123,255,.5)',
     },
   })
-
-  if(!jobDetailisProp) return null
 
   return(
     <>
@@ -180,7 +174,7 @@ const JobDetailis = jobDetailisProp => {
         justifyContent={{ xl: 'start', lg: 'start', md: 'center', sm: 'center', xs: 'center' }}
       >
         <BootstrapButton sx={{ mt: 4 }} variant='contained'>
-            APPLY NOW
+          APPLY NOW
         </BootstrapButton>
       </Box>
      

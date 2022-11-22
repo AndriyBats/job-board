@@ -1,34 +1,26 @@
 import { useState } from 'react'
-import { Link } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 // material
 import Box from '@mui/material/Box'
 import Card from '@mui/material/Card'
 import Rating from '@mui/material/Rating'
-// import Button from '@mui/material/Button'
+import { useTheme } from '@mui/material/styles'
 import Typography from '@mui/material/Typography'
 import CardContent from '@mui/material/CardContent'
-// import CardActions from '@mui/material/CardActions'
-import { useTheme } from '@mui/material/styles'
 import useMediaQuery from '@mui/material/useMediaQuery'
 
 // icons-material
 import PlaceIcon from '@mui/icons-material/Place'
 import BookmarkBorderIcon from '@mui/icons-material/BookmarkBorder'
-// helpers/constants
-// components
-
-// forms
-
 //////////////////////////////////////////////////
 
 const JobItem = ({ data }) => {
-  // const { pictures, description } = data.data
   const theme = useTheme()
+  const navigate = useNavigate()
   const [value, setValue] = useState(2)
-
   const isPhone = useMediaQuery(theme.breakpoints.down('lg'))
 
-  const { title, name, address } = data
+  const { title, name, address, pictures } = data
 
   return (
     <Card sx={{ pt: 1, mt: 1, width: '100%' }}>
@@ -42,7 +34,7 @@ const JobItem = ({ data }) => {
             alt='Picture'
             width='100%'
             height='100%'
-            src={'https://picsum.photos/200/300'}
+            src={pictures[0]}
           />
         </Box>
         <Box
@@ -54,9 +46,9 @@ const JobItem = ({ data }) => {
         >
           <Box>
             <Typography
-              component={Link}
-              to={{ pathname: '/job_detailed', data: data }}
-              onClick={() => localStorage.setItem('job', JSON.stringify(data))}
+              cursor='pointer'
+
+              onClick={() => navigate('/job_detailed', { state: data })}
               sx={{ fontSize: '20px', fontWeight: '700', color: 'text.darkBlue', textDecoration: 'none' }}
             >
               {title}

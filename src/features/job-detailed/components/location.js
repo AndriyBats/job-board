@@ -10,8 +10,7 @@ import PlaceIcon from '@mui/icons-material/Place'
 import { MapComponent } from '../../../components/map'
 //////////////////////////////////////////////////
 
-const Location = () => {
-  const position = [17.761356, 59.020266]
+const Location = ({ name, phone, email, location, address }) => {
   const theme = useTheme()
   const isPhone = useMediaQuery(theme.breakpoints.down('lg'))
 
@@ -33,29 +32,29 @@ const Location = () => {
             {'Department name.'}
           </Typography>
           <Typography sx={{ fontSize: '20px', fontWeight: '700', color: 'text.white' }}>
-            {'University Hospital Giessen.'}
+            {name}
           </Typography>
           <Box sx={{ display: 'flex', flexDirection: 'row' }}>
             <PlaceIcon sx={{ color: 'text.secondary' }} />
             <Typography
               sx={{ fontSize: '18px', fontWeight: '400', color: 'text.white' }}
             >
-              {'AKH Wien, 1090 Wien, Währinger '}
+              {address}
             </Typography>
           </Box>
           <Typography
             sx={{ fontSize: '18px', fontWeight: '400', color: 'text.white' }}
           >
-            {'+43 (01) 40400-12090,'}
+            {phone}
           </Typography>
           <Typography
             sx={{ fontSize: '18px', fontWeight: '400', color: 'text.white' }}
           >
-            {'post_akh_diz@akhwien.at'}
+            {email}
           </Typography>
         </Box>
         <Box width='100%' height='50%' borderRadius=' 0 0 8px 8px'>
-          <MapComponent position={position} />
+          <MapComponent position={[location.lat, location.long]} />
         </Box>
       </Box>
     </Box>
