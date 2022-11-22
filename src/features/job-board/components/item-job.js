@@ -46,10 +46,14 @@ const JobItem = ({ data }) => {
         >
           <Box>
             <Typography
-              cursor='pointer'
-
               onClick={() => navigate('/job_detailed', { state: data })}
-              sx={{ fontSize: '20px', fontWeight: '700', color: 'text.darkBlue', textDecoration: 'none' }}
+              sx={{
+                fontSize: '20px',
+                fontWeight: '700',
+                cursor: 'pointer',
+                color: 'text.darkBlue',
+                textDecoration: 'none',
+              }}
             >
               {title}
             </Typography>

@@ -41,7 +41,7 @@ const JobDetailed = () => {
             display='flex'
             p={{ xl: 3, lg: 3, md: 1, sm: 1, xs: 1 }}
             flexDirection={{ xl: 'row', lg: 'row', md: 'column', sm: 'column', xs: 'column' }}
-            alignItems={{ xl: 'start', lg: 'start', md: 'start', sm: 'center', xs: 'center' }}
+            alignItems={{ xl: 'start', lg: 'start', md: 'center', sm: 'center', xs: 'center' }}
           >
             <Box
               p={{ xl: 2, lg: 2, md: 1, sm: 1, xs: 1 }}
