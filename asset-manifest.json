@@ -1,0 +1,20 @@
+{
+  "files": {
+    "main.js": "/job-board/static/js/main.7a831c5c.js",
+    "static/js/962.07c86896.chunk.js": "/job-board/static/js/962.07c86896.chunk.js",
+    "static/js/665.17c931d1.chunk.js": "/job-board/static/js/665.17c931d1.chunk.js",
+    "static/js/119.73b56279.chunk.js": "/job-board/static/js/119.73b56279.chunk.js",
+    "static/js/743.d7a54edb.chunk.js": "/job-board/static/js/743.d7a54edb.chunk.js",
+    "static/js/396.b4fd46e5.chunk.js": "/job-board/static/js/396.b4fd46e5.chunk.js",
+    "index.html": "/job-board/index.html",
+    "main.7a831c5c.js.map": "/job-board/static/js/main.7a831c5c.js.map",
+    "962.07c86896.chunk.js.map": "/job-board/static/js/962.07c86896.chunk.js.map",
+    "665.17c931d1.chunk.js.map": "/job-board/static/js/665.17c931d1.chunk.js.map",
+    "119.73b56279.chunk.js.map": "/job-board/static/js/119.73b56279.chunk.js.map",
+    "743.d7a54edb.chunk.js.map": "/job-board/static/js/743.d7a54edb.chunk.js.map",
+    "396.b4fd46e5.chunk.js.map": "/job-board/static/js/396.b4fd46e5.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/js/main.7a831c5c.js"
+  ]
+}
