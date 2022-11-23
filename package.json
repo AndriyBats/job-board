@@ -2,7 +2,6 @@
   "name": "job-board",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://AndriyBats.github.io/job-board/",
   "dependencies": {
     "@changey/react-leaflet-markercluster": "^4.0.0-rc1",
     "@emotion/react": "^11.10.5",
